@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 
 /*
  * chylsyMarableHouse - A program that draws a house on the terminal using various
- characters. The size of the house is based on the user's base input.
+ * characters. The size of the house is based on the user's base input.
  * 
  * @author Chylsy Marable
  * @since 6-Sep-2023
