@@ -1,4 +1,4 @@
-//not finished must error check still
+
 package chylsymarablehouse;
 
 import javax.swing.JOptionPane;
@@ -21,6 +21,9 @@ public class ChylsyMarableHouse {
         program();
     }
     
+    /**
+     * Outputs the user welcome message using a JOptionPane message dialog
+     */
     public static void welcome(){
         
         String welcomeMessage = "Welcome to " + TITLE + "!";
@@ -33,6 +36,10 @@ public class ChylsyMarableHouse {
                 );
     }
     
+    /**
+     * Executes the program by collecting the user's input and drawing a house
+     * on the terminal based on those dimensions
+     */
     public static void program(){
                 
         int userBase = inputBase();
@@ -40,8 +47,7 @@ public class ChylsyMarableHouse {
         while(isEven(userBase) == false){
                
             error(userBase);
-            userBase = inputBase();
-            //error check strings and undefined later
+            userBase = inputBase();            
         }
         
         System.out.println(OUTPUT_MESSAGE + userBase);
@@ -51,22 +57,58 @@ public class ChylsyMarableHouse {
         
     }
     
+    /**
+     *  Displays a JOptionPane input dialog box to collect the user's input and
+     *  checks if it is an an appropriate value (an integer)
+     * @return - Returns the user's input (base for house)
+     */
     public static int inputBase(){
-        
+                
         String inputMessage = "Enter the house base";
         String base = "";
         
-        base = JOptionPane.showInputDialog(
+        boolean isInteger;
+        
+        do{
+            
+            base = JOptionPane.showInputDialog(
             null, 
             inputMessage,
             TITLE,
             JOptionPane.PLAIN_MESSAGE
-        );
+            );
+            
+            isInteger = checkInteger(base);
+            
+        } while (base == null || base == "" || isInteger == false);
+        
         int userBase = Integer.parseInt(base);
 
         return userBase;
     }
     
+    /**
+     * Determines wether or not the user's base input is an integer
+     * @param base - User's base size
+     * @return - Returns true or false
+     */
+    public static boolean checkInteger(String base){
+        
+        boolean isInteger = true;
+        
+        for(int i = 0; i < base.length(); i++){
+            
+            if( !Character.isDigit(base.charAt(i)))
+            isInteger = false;          	   
+        }
+        
+        return isInteger;
+    }
+    
+    /**
+     * Draws the roof of the house
+     * @param base - The base of the house
+     */
     public static void roof (int base){
         
         //width = base
@@ -110,6 +152,10 @@ public class ChylsyMarableHouse {
         System.out.println(roof);
     }
     
+    /**
+     * Draws the walls of the house
+     * @param base - The base of the house
+     */
     public static void house (int base){
         
         //height = half of base
@@ -143,6 +189,10 @@ public class ChylsyMarableHouse {
         System.out.println(house);   
     }
     
+    /**
+     * Draws the floor and walkway of the house
+     * @param base - The base of the house
+     */
     public static void walk (int base){
         
         //length = base
@@ -162,7 +212,12 @@ public class ChylsyMarableHouse {
         System.out.println(walkway);
     }
     
-    // <editor-fold>
+    /**
+     * Creates a String of space characters
+     * @param amount - The amount of spaces in the String(stored using a for 
+     * loop)
+     * @return - Returns a String of space characters
+     */
     public static String drawSpace(int amount){
         
         String space = "";
@@ -175,6 +230,12 @@ public class ChylsyMarableHouse {
         return space;
     }
     
+    /**
+     * Creates a String of underscore characters
+     * @param amount - The amount of underscores in the String (stored using a
+     * for loop)
+     * @return - Returns a String of underscore characters
+     */
     public static String drawUnderscore(int amount){
         
         String underscore = "";
@@ -187,6 +248,12 @@ public class ChylsyMarableHouse {
         return underscore;
     }
     
+    /**
+     * Creates a String of star characters
+     * @param amount - The amount of stars in the String (stored using a for 
+     * loop)
+     * @return - Returns a String of star characters
+     */
     public static String drawStar(int amount){
         
         String star = "";
@@ -198,9 +265,12 @@ public class ChylsyMarableHouse {
         
         return star;
     }
-    
-    //</editor-fold>
-    
+        
+    /**
+     * Determines wether or not the user's base input is an even number
+     * @param base - The user's base input
+     * @return - Returns true or false
+     */
     public static boolean isEven(int base){
         
         if(base % 2 == 0){
@@ -212,10 +282,14 @@ public class ChylsyMarableHouse {
         }
     }
     
+    /**
+     * Displays an error message on the terminal (user's base is not an even 
+     * number)
+     * @param base - The user's base input
+     */
     public static void error(int base){
         
         String errorMessage = "Cannot draw a house with a base of " + base;
         System.out.println(errorMessage);
     }
-    
 }
