@@ -3,10 +3,13 @@ package chylsymarablehouse;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author chyls
- */
+/*
+ * chylsyMarableHouse - A program that draws a house on the terminal using various
+ characters. The size of the house is based on the user's base input.
+ * 
+ * @author Chylsy Marable
+ * @since 6-Sep-2023
+*/
 public class ChylsyMarableHouse {
 
     public static final String TITLE = "House Builder";
