@@ -17,7 +17,7 @@ public class ChylsyMarableRecursion {
         // is this unorthodox????
         for (int i = 0; i < 16; i++) {
 
-            n = n + 20;
+            n += 20;
             System.out.println("Number = " + n);
 
             int mcCarthy = mcCarthy91(n);
