@@ -18,7 +18,7 @@ public class ChylsyMarableGPSText {
             {"S","T","U","V","W","X"},
             {"Y","Z","SPACE","-",".","ENTER"}
         };
-    //ignoreCase command thing
+    //ignoreCase;
     
     /**
      * @param args the command line arguments
