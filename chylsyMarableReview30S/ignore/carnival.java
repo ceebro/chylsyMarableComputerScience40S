@@ -1,4 +1,3 @@
-
 public class Carnival{
 
   public static void Main(String[] args){
