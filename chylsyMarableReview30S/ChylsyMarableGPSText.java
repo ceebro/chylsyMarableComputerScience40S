@@ -42,14 +42,16 @@ public class ChylsyMarableGPSText {
         String waypoint = userInput();
         
         int wordLength = waypoint.length();
-        char[] phrase = new char[wordLength];
+        
+        String[] phrase = new String[wordLength];
         
         for (int i = 0; i < phrase.length; i++) {
 
-            phrase[i] = waypoint.charAt(i);
+            phrase[i] = Character.toString(waypoint.charAt(i));
+            System.out.println(phrase[i]);
         }
         
-        int distance = calculateDistance(phrase, wordLength);
+        calculateDistance(phrase, wordLength);
         
 
     }
@@ -88,30 +90,38 @@ public class ChylsyMarableGPSText {
         );
     }
     
-    public static int calculateDistance(char[] word, int arraySize){
-        
-        //KEYBOARD
-        
-        //must find location of the string/element within the keyboard[][]
-        
-        //convert char[] to string[]
-                
-        String[] characters = new String[arraySize];
-        for (int i = 0; i < characters.length; i++) {
-            
-            characters[i] = word[i];
-        }
-        
-        for (int i = 0; i < 5; i++) {
+    public static void calculateDistance(String[] word, int arraySize) {
 
-            for (int j = 0; j < 6; j++) {
-                
-                if (KEYBOARD[i][j].equalsIgnoreCase(word[i])) {
-                    
-                }
-            }
-        }
+        //KEYBOARD
+        //must find location of the string/element within the keyboard[][]
+        //arraySize is the final value of the word index (loop to change the value
+        //somewhere)
         
-        return 0;
-    }
+        boolean found = false;
+        int index = 0;
+
+        do {
+
+            int length = 0;
+            int width = 0;
+
+            do {
+                length++;
+            } while (length <= 5);
+            do {
+
+                width++;
+                for (int i = 0; i < arraySize; i++) {
+                    if (KEYBOARD[length][width].equalsIgnoreCase(word[index]){
+                        
+                }
+                    String coordinates = "X = " + length + "Y = " + width;
+                    found = true;
+                    System.out.println(coordinates);
+                }
+            } while (width <= 6 && found == false);
+
+        } while (found = false);
+        System.out.println(found);
+    }   
 }
