@@ -43,7 +43,6 @@ public class ChylsyMarableGPSText {
         displayKeyboard();
 
         String waypoint = userInput();
-
         int wordLength = waypoint.length();
 
         String[] phrase = new String[wordLength];
@@ -54,16 +53,14 @@ public class ChylsyMarableGPSText {
             //System.out.println(phrase[i]);
         }
 
-        findCoordinates(phrase, wordLength);
-        System.out.println(movements);
-        
+        findCoordinates(phrase, wordLength);        
     }
 
     public static void displayKeyboard() {
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < KEYBOARD.length; i++) {
 
-            for (int j = 0; j < 6; j++) {
+            for (int j = 0; j < KEYBOARD[0].length; j++) {
 
                 System.out.print(KEYBOARD[i][j] + "\t");
             }
@@ -74,13 +71,33 @@ public class ChylsyMarableGPSText {
     public static String userInput() {
 
         String inputMessage = "Enter the phrase for the GPS";
-
-        return JOptionPane.showInputDialog(
+        String input = "";
+        
+        do{
+            
+            input = JOptionPane.showInputDialog(
                 null,
                 inputMessage,
                 TITLE,
                 JOptionPane.PLAIN_MESSAGE
-        );
+            );
+        } while (integerCheck(input) == true);
+        
+        String enter = "enter";
+        
+        return input + enter;
+    }
+    
+    public static boolean integerCheck(String check){
+        
+        try{
+            
+            int integer = Integer.parseInt(check); 
+            return true;
+        } catch (NumberFormatException e){
+            
+            return false;
+        }
     }
 
     public static void output(String message) {
@@ -110,13 +127,11 @@ public class ChylsyMarableGPSText {
             found = false;
             for (int i = 0; i < KEYBOARD.length; i++) {
                 
-                if (found) {
+                if (found){
                     break;
                 }
                 for (int j = 0; j < KEYBOARD[0].length; j++) {
-                    
                
-                    //System.out.println(charToCheck);
                     if (KEYBOARD[i][j].equalsIgnoreCase(word[charToCheck])) {
                         
                         found = true;
@@ -125,20 +140,19 @@ public class ChylsyMarableGPSText {
                         charToCheck++;
                         break;
                     }
-
                 }
             }
             
         } while (charToCheck < arraySize);
-         System.out.println(coordinates);
-
+        System.out.println(coordinates);
     }
+    
     public static void calculateDistance(int row, int column){
+        
         movements += row-currentX;
         movements += column-currentY;
         currentX = row;
-       currentY = column;
-                
+        currentY = column;                
     }
 
 }
