@@ -2,11 +2,12 @@ package chylsymarablebiglarfixemshop;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author chyls
- *
- */
+/*
+ * chylsyMarableBigLarFixemShop - A program that diagnoses a computer's 
+    technical issues based on two conditions.
+ * @author Chylsy Marable
+ * @since 6-Sep-2023
+*/
 public class ChylsyMarableBigLarFixemShop {
 
     public static final String TITLE = "Big Lar's Computer Fixem-up Shop";
