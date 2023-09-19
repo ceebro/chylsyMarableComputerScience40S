@@ -2,10 +2,11 @@ package chylsymarablegpstext;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author chyls
- */
+/*
+ * chylsyMarableGPSText - 
+ * @author Chylsy Marable
+ * @since 6-Sep-2023
+*/
 public class ChylsyMarableGPSText {
 
     public static final String TITLE = "GPS Text Entry";
@@ -81,14 +82,14 @@ public class ChylsyMarableGPSText {
                 TITLE,
                 JOptionPane.PLAIN_MESSAGE
             );
-        } while (integerCheck(input) == true);
+        } while (isInteger(input) == true || input == null);
         
         String enter = "enter";
         
         return input + enter;
     }
     
-    public static boolean integerCheck(String check){
+    public static boolean isInteger(String check){
         
         try{
             
