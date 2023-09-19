@@ -21,7 +21,11 @@ public class ChylsyMarableHouse {
     public static void main(String[] args) {
 
         welcome();
+        do{
+            
         program();
+        } while (playAgain() == true);
+        thanks();
     }
     
     /**
@@ -30,13 +34,7 @@ public class ChylsyMarableHouse {
     public static void welcome(){
         
         String welcomeMessage = "Welcome to " + TITLE + "!";
-        
-        JOptionPane.showMessageDialog(
-                null, 
-                welcomeMessage,
-                TITLE,
-                JOptionPane.PLAIN_MESSAGE
-                );
+        output(welcomeMessage);
     }
     
     /**
@@ -57,7 +55,15 @@ public class ChylsyMarableHouse {
         roof(userBase);
         house(userBase);
         walk(userBase);
+    }
+    
+    /**
+     * Outputs the user thank you message
+     */
+    public static void thanks(){
         
+        String thanksMessage = "Thank you for playing " + TITLE + "!";
+        output(thanksMessage);
     }
     
     /**
@@ -69,9 +75,7 @@ public class ChylsyMarableHouse {
                 
         String inputMessage = "Enter the house base";
         String base = "";
-        
-        boolean isInteger;
-        
+                
         do{
             
             base = JOptionPane.showInputDialog(
@@ -80,10 +84,8 @@ public class ChylsyMarableHouse {
             TITLE,
             JOptionPane.PLAIN_MESSAGE
             );
-            
-            isInteger = checkInteger(base);
-            
-        } while (base == null || base == "" || isInteger == false);
+                        
+        } while (checkInteger(base) == false || base == null);
         
         int userBase = Integer.parseInt(base);
 
@@ -268,6 +270,19 @@ public class ChylsyMarableHouse {
         
         return star;
     }
+    
+    /**
+     * Outputs a JOptionPane message dialog 
+     * @param message - The message of the dialog box
+     */
+    public static void output(String message){
+        
+        JOptionPane.showMessageDialog(
+                null, message, 
+                TITLE, 
+                JOptionPane.PLAIN_MESSAGE
+        );
+    }
         
     /**
      * Determines wether or not the user's base input is an even number
@@ -294,5 +309,28 @@ public class ChylsyMarableHouse {
         
         String errorMessage = "Cannot draw a house with a base of " + base;
         System.out.println(errorMessage);
+    }
+    
+    /**
+     * Asks the user if they want to play again
+     * @return - True or false
+     */
+    public static boolean playAgain(){
+        
+        String playAgain = "Do you want to play again?";
+        int confirm = JOptionPane.showConfirmDialog(null, 
+                playAgain, 
+                TITLE, 
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.PLAIN_MESSAGE
+        );
+        
+        if(confirm == 0){
+            
+            return true;
+        } else {
+            
+            return false;
+        }
     }
 }
