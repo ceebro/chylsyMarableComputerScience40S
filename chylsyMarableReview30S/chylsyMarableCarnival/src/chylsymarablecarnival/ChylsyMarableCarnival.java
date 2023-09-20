@@ -11,8 +11,9 @@ import javax.swing.JOptionPane;
 public class ChylsyMarableCarnival {
 
     public static final String TITLE = "The Carnival";
-    
     static ImageIcon balloons = new ImageIcon("balloons.gif");
+    
+    public static String[] activities = new String[4];
 
     /**
      * @param args the command line arguments
@@ -37,49 +38,51 @@ public class ChylsyMarableCarnival {
     
     public static void program(){
         
-        String[] activities = new String[4];
         activities[0] = "Make a balloon";
         activities[1] = "Move your balloon";
         activities[2] = "Pop your balloon";
-        activities[3] = "Quit";
+        activities[3] = "Quit";        
+
+        Object userChoice = userActivity();
+        
+        Balloon balloon = new Balloon();
+        balloon.name = balloon.setName().toString();
+        balloon.color = balloon.setColor().toString();
+
+        String[] directions = balloon.setDirections();
+
+        String userBalloon = "Name: " + balloon.name + "\n"
+                + "Color: " + balloon.color + "\n"
+                + "Floating: " + directions[0];
+        output(userBalloon);
+        userChoice = userActivity();
+        
+        if (userChoice == activities[1]){
+            
+            balloon.direction = balloon.moveBalloon().toString();
+            
+            userBalloon = "Name: " + balloon.name + "\n"
+                + "Color: " + balloon.color + "\n"
+                + "Floating: " + balloon.direction;
+            output(userBalloon);
+            userChoice = userActivity();
+        } else if(userChoice == activities[2]){
+            
+            String poppedBalloon = "Your balloon " + balloon.name + " has popped!";
+            output(poppedBalloon);
+            userChoice = userActivity();
+        } else if(userChoice == activities[3]){
+            
+            thanks();
+        }
+    }
+    
+    public static Object userActivity(){
         
         String activityMessage = "Welcome to the " + TITLE + ", what would you like to do?";
         
         Object userActivity = userInput(activityMessage, activities);
-
-        Balloon balloon = new Balloon();
-        String balloonName = balloon.setName().toString();
-        String balloonColor = balloon.setColor().toString();
-
-        String[] directions = balloon.setDirections();
-
-        String userBalloon = "Name: " + balloonName + "\n"
-                + "Color: " + balloonColor + "\n"
-                + "Floating: " + directions[0];
-        output(userBalloon);
-        
-        userActivity = userInput(activityMessage, activities);
-        
-        if (userActivity == activities[1]){
-            
-            String direction = balloon.moveBalloon().toString();
-            
-            userBalloon = "Name: " + balloonName + "\n"
-                + "Color: " + balloonColor + "\n"
-                + "Floating: " + direction;
-            output(userBalloon);
-            
-            userActivity = userInput(activityMessage, activities);
-        } else if(userActivity == activities[2]){
-            
-            String poppedBalloon = "Your balloon " + balloonName + " has popped!";
-            output(poppedBalloon);
-            
-            userActivity = userInput(activityMessage, activities);
-        } else if(userActivity == activities[3]){
-            
-            thanks();
-        }
+        return userActivity;
     }
     
     public static Object userInput(String message, String[] options){
