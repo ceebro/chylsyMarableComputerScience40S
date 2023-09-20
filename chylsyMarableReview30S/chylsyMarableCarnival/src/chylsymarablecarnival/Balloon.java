@@ -15,6 +15,10 @@ public class Balloon {
     
     public static String[] directions;
     
+    public static Object name;
+    public static Object color;
+    public static Object direction;
+    
     public static void balloon(){
         
         
@@ -24,14 +28,17 @@ public class Balloon {
         
         String inputName = "Enter name for your balloon";
 
-        return JOptionPane.showInputDialog(
+        name = JOptionPane.showInputDialog(
                 null, 
                 inputName, 
                 TITLE, 
                 JOptionPane.PLAIN_MESSAGE, 
                 balloons, 
                 null, 
-                null);
+                null
+        );
+        
+        return name;
     }
     
     public static Object setColor(){
@@ -43,7 +50,7 @@ public class Balloon {
         balloonColor[1] = "Red";
         balloonColor[2] = "Green";
         
-        return JOptionPane.showInputDialog(
+        color =  JOptionPane.showInputDialog(
                 null, 
                 inputColor, 
                 TITLE, 
@@ -52,6 +59,8 @@ public class Balloon {
                 balloonColor,
                 balloonColor[0]
         );
+        
+        return color;
     }
     
     public static String[] setDirections(){
@@ -70,7 +79,7 @@ public class Balloon {
         
         String moveBalloon = "What direction would you like to move your balloon?";
         
-        return JOptionPane.showInputDialog(
+        direction = JOptionPane.showInputDialog(
                 null, 
                 moveBalloon, 
                 TITLE, 
@@ -79,6 +88,8 @@ public class Balloon {
                 directions, 
                 directions[0]
         );
+        
+        return direction;
     }
     
 }
