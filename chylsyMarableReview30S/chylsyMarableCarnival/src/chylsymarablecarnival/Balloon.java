@@ -20,14 +20,13 @@ public class Balloon {
     public static Object direction;
     
     public static void balloon(){
-        
-        
+   
     }
     
-    public static Object setName(){
+    public static String setName(){
         
         String inputName = "Enter name for your balloon";
-
+        
         name = JOptionPane.showInputDialog(
                 null, 
                 inputName, 
@@ -35,13 +34,12 @@ public class Balloon {
                 JOptionPane.PLAIN_MESSAGE, 
                 balloons, 
                 null, 
-                null
-        );
+                null);
         
-        return name;
+        return name.toString();
     }
     
-    public static Object setColor(){
+    public static String setColor(){
         
         String inputColor = "Select a balloon color";
         
@@ -50,7 +48,7 @@ public class Balloon {
         balloonColor[1] = "Red";
         balloonColor[2] = "Green";
         
-        color =  JOptionPane.showInputDialog(
+        color = JOptionPane.showInputDialog(
                 null, 
                 inputColor, 
                 TITLE, 
@@ -60,7 +58,35 @@ public class Balloon {
                 balloonColor[0]
         );
         
-        return color;
+        return color.toString();
+    }
+    
+    public static void outputProperties(String direction){
+        
+        String userBalloon = "Name: " + name + "\n"
+                + "Color: " + color + "\n"
+                + "Floating: " + direction;
+        
+        JOptionPane.showMessageDialog(
+                null, 
+                userBalloon, 
+                TITLE, 
+                JOptionPane.PLAIN_MESSAGE,
+                balloons
+        );
+    }
+    
+    public static void popBalloon(){
+        
+        String poppedBalloon = "Your balloon " + name + " has popped!";
+        
+        JOptionPane.showMessageDialog(
+                null, 
+                poppedBalloon, 
+                TITLE, 
+                JOptionPane.PLAIN_MESSAGE,
+                balloons
+        );
     }
     
     public static String[] setDirections(){
@@ -75,7 +101,7 @@ public class Balloon {
         return directions;
     }
     
-    public static Object moveBalloon(){
+    public static String moveBalloon(){
         
         String moveBalloon = "What direction would you like to move your balloon?";
         
@@ -89,7 +115,6 @@ public class Balloon {
                 directions[0]
         );
         
-        return direction;
+        return direction.toString();
     }
-    
 }
