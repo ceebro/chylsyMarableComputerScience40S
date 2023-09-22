@@ -11,8 +11,8 @@ import javax.swing.JOptionPane;
 public class ChylsyMarableBigLarFixemShop {
 
     public static final String TITLE = "Big Lar's Computer Fixem-up Shop";
-    public static final String Y = "Yes";
-    public static final String N = "No";
+    public static final String Y = "Y";
+    public static final String N = "N";
 
     /**
      * @param args the command line arguments
@@ -49,12 +49,10 @@ public class ChylsyMarableBigLarFixemShop {
      */
     public static void program() {
 
-        String beepCondition = "Does your computer beep upon startup?"
-                + "\n Please answer Yes or No.";
+        String beepCondition = "Does your computer beep upon startup?";
         String beep = userInput(beepCondition);
 
-        String spinCondition = "Does your hard drive spin?"
-                + "\n Please answer Yes or No.";
+        String spinCondition = "Does your hard drive spin?";
         String spin = userInput(spinCondition);
 
         if (beep.equalsIgnoreCase(Y) && spin.equalsIgnoreCase(Y)) {
