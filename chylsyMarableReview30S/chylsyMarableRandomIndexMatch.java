@@ -22,7 +22,7 @@ public class ChylsyMarableRandomIndexMatch {
         welcome();
         
         do{
-        program();
+            program();
         } while (playAgain() == true);
         
         thanks();
