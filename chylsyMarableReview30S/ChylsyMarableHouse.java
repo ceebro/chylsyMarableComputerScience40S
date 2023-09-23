@@ -23,7 +23,7 @@ public class ChylsyMarableHouse {
         welcome();
         do{
             
-        program();
+            program();
         } while (playAgain() == true);
         thanks();
     }
