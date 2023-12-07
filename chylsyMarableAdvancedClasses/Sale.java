@@ -4,7 +4,8 @@ package chylsymarableadvancedclassesprogram;
  
 /**
  * Sale.java - A generic class that creates sold items as well as an order
- * number (the price of the item can be set)
+ * number (the price of the item can be set) 
+ * This class is also a child of Order, so it must inherit all of Order's methods
  *
  * @author Chylsy Marable
  * @since Dec 5, 2023, 11:09:23 a.m.
@@ -25,7 +26,7 @@ public class Sale <T> extends Order
     }
 
     /**
-     * Sets the price of the saleItem
+     * Sets the price of the saleItem (mutator)
      * @param price - The price as a double
      */
     @Override
@@ -35,7 +36,7 @@ public class Sale <T> extends Order
     }
 
     /**
-     * Gets the price of the saleItem
+     * Gets the price of the saleItem (accessor)
      * @return - Returns the price as a double
      */
     @Override
@@ -45,12 +46,11 @@ public class Sale <T> extends Order
     }
     
     /**
-     * Gets the order number of the saleItem
+     * Gets the order number of the saleItem (accessor)
      * @return - Returns the order number
      */
     public int getOrderNumber(){
         
         return orderNumber;
     }
-    
 }
