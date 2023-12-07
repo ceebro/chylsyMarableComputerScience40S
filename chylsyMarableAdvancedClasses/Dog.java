@@ -59,6 +59,4 @@ public class Dog implements Pet
                 + sale.getPrice()
         );
     }
-     
-   
 }
