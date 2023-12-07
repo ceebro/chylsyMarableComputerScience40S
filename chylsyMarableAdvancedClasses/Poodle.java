@@ -3,50 +3,41 @@ package chylsymarableadvancedclassesprogram;
 
  
 /**
- * Poodle.java - description
+ * Poodle.java - This class inherits from Dog (Poodle is a Dog), simulating 
+ * a poodle being sold at a digital pet store
  *
  * @author Chylsy Marable
  * @since Dec 5, 2023, 11:10:15 a.m.
  */
-public class Poodle 
+public class Poodle extends Dog
 {
+    
+    private static int poodlesSold;
 
     /**
-     * Default constructor, set class properties
+     * Default constructor, set class properties 
      */
-    public Poodle() {
+    public Poodle(String name, int orderNumber) {
         
-    }
-     
-    /**
-     * String representation of this object
-     *
-     * @return The object represented as a String
-     */
-    @Override
-    public String toString() {
-        return "Poodle: " + super.toString();
-    }
-   
-    /**
-     * Deep comparison, determines if two objects are "equal" in this context
-     *
-     * @param object the object to compare to
-     * @return the objects are "equal" (true) or not (false)
-     */
-    @Override
-    public boolean equals(Object object) {
-        return super.equals(object);
-    }
-       
-    /**
-     * a Deep clone, creates a duplicate object using new memory
-     *
-     * @return a "clone" of the object using new memory
-     */
-    @Override
-    public Poodle clone() {
-        return this;
+        super.setName(name);
+        super.sell(99.99, orderNumber);
+        poodlesSold++;
+        sold();
     }
     
+    /**
+     * Outputs the order details using its parent class's sold method, as well
+     * as the number of poodles sold
+     */
+    @Override
+    public void sold(){
+        
+        super.sold();
+        System.out.print(
+                " and we have sold "
+                + poodlesSold 
+                + " poodles"
+                + "\n"
+        );
+    }
 }
