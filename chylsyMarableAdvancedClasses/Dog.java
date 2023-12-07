@@ -56,7 +56,7 @@ public class Dog implements Pet
                 + sale.getOrderNumber() + " "
                 + name
                 + " is worth " 
-                + sale.getPrice()
+                + sale.getPrice() + "$"
         );
     }
 }
