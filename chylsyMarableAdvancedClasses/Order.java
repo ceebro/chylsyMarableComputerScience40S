@@ -24,6 +24,4 @@ public abstract class Order
      * @return - Returns the price of the item
      */
     public abstract double getPrice();
-
-     
 }
